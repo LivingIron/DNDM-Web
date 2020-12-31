@@ -1,0 +1,30 @@
+<html>
+    <%- include('./partials/head.ejs')%> 
+        
+    <body>
+        
+        <%- include('./partials/nav.ejs')%>
+        <div class="main">
+            <div class="mpic mpicGridEquipment">
+                
+                    <h1 class="mpicH1">D&DM</h1>
+                    <h2>Enter a piece of equipment</h2>
+                    <form method="GET" id="FormInput" onSubmit="return false;">
+                        <input type="text" id="Inputfield" >
+                    </form>
+            </div>
+            <div id="squery">
+                <h3>Results</h3>
+                <div id="QueryAreaEquipment">
+                   
+                </div>
+            </div>
+        </div>
+        <%- include('./partials/footer.ejs')%>
+
+        <script type="text/javascript" src="./scripts/navAnimation.js"> </script>
+        <script type="text/javascript" src="./scripts/equipmentApiQuery.js"> </script>
+
+    </body>
+
+</html>

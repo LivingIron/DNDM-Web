@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spells</title>
+        <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <meta charset="utf-8"/>
+    </head>
+        
+    <body>
+        
+        <div class="navigation">
+            <p><a href="./Home.html">HOME</a></p>
+            <p><a href="./Spells.html">SPELLS</a></p>
+            <p><a href="./Monsters.html">MONSTERS</a></p>
+            <p><a href="./Equipment.html">EQUIPMENT</a></p>
+        </div>
+        <div class="main">
+            <div class="mpic mpicGridEquipment">
+                
+                    <h1 class="mpicH1">D&DM</h1>
+                    <h2>Enter a piece of equipment</h2>
+                    <form method="GET" id="FormInput" onSubmit="return false;">
+                        <input type="text" id="Inputfield" >
+                    </form>
+            </div>
+            <div id="squery">
+                <h3>Results</h3>
+                <div id="QueryAreaEquipment">
+                   
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="ftrFirstColumn">
+                <h4>Getting Started</h4>
+                <p><a href="./Home.html">HOME</a></p>
+                <p><a href="./Spells.html">SPELLS</a></p>
+                <p><a href="./Monsters.html">MONSTERS</a></p>
+                <p><a href="./Equipment.html">EQUIPMENT</a></p>
+            </div>
+            <div class="ftrSecondColumn">
+                <h4>Useful links</h4>
+                <p><a href="https://5thsrd.org/#character" target="_blank">CHARACTER</a></p>
+                <p><a href="https://5thsrd.org/#spellcasting" target="_blank">SPELLCASTING</a></p>
+                <p><a href="https://5thsrd.org/#combat" target="_blank">COMBAT</a></p>
+                <p><a href="https://5thsrd.org/#adventuring" target="_blank">ADVENTURING</a></p>
+            </div>
+            <div class="ftrThirdColumn">
+                <h4>Contact us</h4>
+                <div class="contactGrid">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="./images/footer/facebook.png"></a>
+                    <a href="https://www.instagram.com/?hl=en" target="_blank"><img src="./images/footer/instagram.png"></a>
+                    <a href="https://twitter.com/?lang=en" target="_blank"><img src="./images/footer/twitter.png"></a>
+                    <a href="https://bg.linkedin.com/" target="_blank"><img src="./images/footer/linkedin.png"></a>
+                </div>
+            </div>
+            <div class="ftrCopyright">
+                <p>Copyright © 2019-2020 Irolife Industries</p>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="./scripts/navAnimation.js"> </script>
+        <script type="text/javascript" src="./scripts/equipmentApiQuery.js"> </script>
+
+    </body>
+
+</html>

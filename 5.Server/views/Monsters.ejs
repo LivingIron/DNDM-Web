@@ -1,0 +1,34 @@
+<html>
+    <%- include('./partials/head.ejs')%> 
+        
+    <body>
+        
+        <%- include('./partials/nav.ejs')%>
+        <div class="main">
+            <div class="mpic mpicGridMonsters">
+                
+                    <h1 class="mpicH1">D&DM</h1>
+                    <h2>Enter a monster</h2>
+                    <form method="GET" id="FormInput" onSubmit="return false;">
+                        <input type="text" id="Inputfield" >
+                    </form>
+            </div>
+            <div id="squery">
+                <h3>Results</h3>
+                <div id="QueryAreaMonsters">
+                   <div id="QueryAreaMonstersLeft">
+                   </div>
+                   <div id="QueryAreaMonstersRight">
+                   </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('./partials/footer.ejs')%>
+
+        <script type="text/javascript" src="./scripts/navAnimation.js"> </script>
+        <script type="text/javascript" src="./scripts/monsterApiQuery.js"> </script>
+
+    </body>
+
+</html>
