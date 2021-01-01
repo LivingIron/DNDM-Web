@@ -5,17 +5,14 @@
         
         <%- include('./partials/nav.ejs')%>
         <div class="mainForm">
-          <form id="emailForm">
+          <form id="emailForm" action="/equipment/form" method="POST">
             <label for="emailArea">Email:</label>
-           
-           
-
-            <input type="text" id="emailArea">
+            <input type="text" id="emailArea" name="email">
             <label for="subjectArea">Subject:</label>
-            <input type="text" id="subjectArea">
+            <input type="text" id="subjectArea" name="subject">
             <label for="messageArea">Message:</label>
-            <textarea id="messageArea"></textarea>
-            <input type="submit" id="submitButton" value="Send">
+            <textarea id="messageArea" name="message"></textarea>
+            <input type="submit" id="submitButton" value="Send" >
           </form> 
         </div>
         <%- include('./partials/footer.ejs')%>

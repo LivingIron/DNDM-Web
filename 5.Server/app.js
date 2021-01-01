@@ -30,6 +30,7 @@ app.set('view engine','ejs');
 
 // middleware and static files
 app.use(express.static('./public'));
+app.use(express.urlencoded({extended:true}));
     //3rd party middlware
 app.use(morgan('dev'));
 
@@ -84,7 +85,7 @@ app.use(morgan('dev'));
     });
     */
 
-//basic routes
+//=========================basic routes======================
 app.get('/',(req,res)=>{
     //res.send('<p>hello</p>');
     res.render('Home',{title:'Home'});
@@ -104,7 +105,9 @@ app.get('/equipment',(req,res)=>{
     res.render('Equipment',{title:'Equipment'});
 });
 
-//Form routes
+
+//==============Form routes=====================
+
 app.get('/equipment/form',(req,res)=>{
     Blog.find().sort({createdAt:-1})
     .then((result)=>{
@@ -117,12 +120,27 @@ app.get('/equipment/form',(req,res)=>{
     
 });
 
+app.post('/equipment/form',(req,res)=>{
+    console.log(req.body);
+    const newEmail= new Email(req.body);
+
+    newEmail.save()
+    .then((result)=>{
+        res.redirect('/equipment/form');
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+});
+
 app.get('/equipment/form/create',(req,res)=>{
     const blogs=[
         {title:'Yoshi finds eggs',snippet:'Lorem ipsum'},
         {title:'Mario finds the stars',snippet:'Lorem dicksum'},
         {title:'How to defeat your mom',snippet:'Kappa'}
     ];
+
+
     res.render('FormCreate',{title:'Form',blogs});
 });
 
