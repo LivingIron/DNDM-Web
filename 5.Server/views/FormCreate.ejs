@@ -4,12 +4,18 @@
     <body>
         
         <%- include('./partials/nav.ejs')%>
-        <div class="main">
+        <div class="mainForm">
           <form id="emailForm">
+            <label for="emailArea">Email:</label>
+           
+           
+
             <input type="text" id="emailArea">
+            <label for="subjectArea">Subject:</label>
             <input type="text" id="subjectArea">
+            <label for="messageArea">Message:</label>
             <textarea id="messageArea"></textarea>
-            <input type="submit" id="submitButton">
+            <input type="submit" id="submitButton" value="Send">
           </form> 
         </div>
         <%- include('./partials/footer.ejs')%>

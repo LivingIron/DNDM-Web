@@ -540,6 +540,68 @@ footer img{
   padding:0;
 }
 
+#emailForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+
+}
+
+#emailArea{
+  border: 1px solid hsla(360, 10%, 62%, 1);
+  display: flex;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 15px 20px;
+}
+
+#subjectArea{
+  border: 1px solid hsla(360, 10%, 62%, 1);
+  display: flex;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 15px 20px;
+}
+
+#messageArea{
+  border: 1px solid hsla(360, 10%, 62%, 1);
+  display: flex;
+  border-radius: 20px;
+  width: 600px;
+  height: 375px;
+  margin: 15px 20px;
+}
+
+#submitButton{
+  border: 1px solid hsla(360, 10%, 62%, 1);
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px 20px;
+  font-family: 'PT Serif';
+  font-size: 1.2rem;
+}
+
+.mainForm{
+  color: hsla(360, 100%, 97%, 0.91);
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+  align-items: center;
+  background-image: url("/images/footer/mainPicForm.jpg");
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.mainForm label{
+  margin-top: 20px;
+  font-size:1.3rem;
+  font-family: Ubuntu;
+}
+
 /*--------------------------------Animations---------------------------------*/
 
 a:hover{

@@ -7,7 +7,7 @@ const morgan=require('morgan');
 const mongoose=require('mongoose');
 require('dotenv').config();
 const Blog=require('./models/blog');
-
+const Email=require('./models/email');
 
 //CONNECT TO MONGODB
 const dbURI="mongodb+srv://LivingIron:veganton123@cluster0.re0gw.mongodb.net/DNDM?retryWrites=true&w=majority";
@@ -123,7 +123,7 @@ app.get('/equipment/form/create',(req,res)=>{
         {title:'Mario finds the stars',snippet:'Lorem dicksum'},
         {title:'How to defeat your mom',snippet:'Kappa'}
     ];
-    res.render('Form',{title:'Form',blogs});
+    res.render('FormCreate',{title:'Form',blogs});
 });
 
 

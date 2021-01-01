@@ -4,11 +4,9 @@
     <body>
         
         <%- include('./partials/nav.ejs')%>
-        <div class="main">
+        <div class="mainForm">
           <form>
-            <input type="text">
-            <textarea></textarea>
-            <input type="submit">
+           
             <% if(blogs.length > 0 ) { %>
                 <% blogs.forEach(blog => { %>
                     <h3 class='title-blog'><%= blog.title %></h3>
