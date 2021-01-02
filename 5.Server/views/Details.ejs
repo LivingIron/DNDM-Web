@@ -1,0 +1,18 @@
+<html>
+    <%-include('./partials/head.ejs')%>
+    <body>
+        <%-include('./partials/nav.ejs')%>
+        <div id="detail-container">
+            <h2><%=email.email%></h1> 
+            <div id="detail-content-container">
+                <h3><%=email.subject%></h1>    
+                <p>
+                    <%=email.message%>
+                </p>  
+                <a class="delete" data-doc="<%=email._id%>">Delete </a>
+            </div>           
+        </div>
+        <%- include('./partials/footer.ejs')%>
+    </body>
+
+</html>

@@ -8,6 +8,7 @@ const mongoose=require('mongoose');
 require('dotenv').config();
 const Blog=require('./models/blog');
 const Email=require('./models/email');
+const { render } = require('ejs');
 
 //CONNECT TO MONGODB
 const dbURI="mongodb+srv://LivingIron:veganton123@cluster0.re0gw.mongodb.net/DNDM?retryWrites=true&w=majority";
@@ -133,6 +134,18 @@ app.get('/form/create',(req,res)=>{
     res.render('FormCreate',{title:'Send Form'});
 });
 
+app.get('/form/:id',(req,res)=>{
+    const id=req.params.id;
+    console.log(id);
+    Email.findById(id)
+    .then((result)=>{
+        res.render('Details',{email:result,title:'Email Details'});
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+});
+
 app.post('/form',(req,res)=>{
     console.log(req.body);
     const newEmail= new Email(req.body);
@@ -158,5 +171,5 @@ app.get('/spellz',(req,res)=>{
 
 //404- NEEDS TO BE AT THE BOTTOM
 app.use((req,res)=>{
-    res.status(404).render('Home');
+    res.status(404).render('Error',{title:'Error 404'});
 });
