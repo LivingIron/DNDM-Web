@@ -108,10 +108,12 @@ app.get('/equipment',(req,res)=>{
 
 //==============Form routes=====================
 
-app.get('/equipment/form',(req,res)=>{
-    Blog.find().sort({createdAt:-1})
+
+app.get('/form',(req,res)=>{
+
+    Email.find()
     .then((result)=>{
-        res.render('Form',{title:'Forms',blogs:result});
+        res.render('Form',{title:'Forms',emails:result});
     })
     .catch((err)=>{
         console.log(err);
@@ -120,37 +122,39 @@ app.get('/equipment/form',(req,res)=>{
     
 });
 
-app.post('/equipment/form',(req,res)=>{
+app.get('/form/create',(req,res)=>{
+    //const blogs=[
+    //    {title:'Yoshi finds eggs',snippet:'Lorem ipsum'},
+    //    {title:'Mario finds the stars',snippet:'Lorem dicksum'},
+    //    {title:'How to defeat your mom',snippet:'Kappa'}
+    //];
+
+
+    res.render('FormCreate',{title:'Send Form'});
+});
+
+app.post('/form',(req,res)=>{
     console.log(req.body);
     const newEmail= new Email(req.body);
 
     newEmail.save()
     .then((result)=>{
-        res.redirect('/equipment/form');
+        res.redirect('/form');
     })
     .catch((err)=>{
         console.log(err);
     })
 });
 
-app.get('/equipment/form/create',(req,res)=>{
-    const blogs=[
-        {title:'Yoshi finds eggs',snippet:'Lorem ipsum'},
-        {title:'Mario finds the stars',snippet:'Lorem dicksum'},
-        {title:'How to defeat your mom',snippet:'Kappa'}
-    ];
 
-
-    res.render('FormCreate',{title:'Form',blogs});
-});
 
 
 
 //redirects
 
-//app.get('/spellz',(req,res)=>{
-//    res.redirect('/spells')
-//});
+app.get('/spellz',(req,res)=>{
+   res.redirect('/spells')
+});
 
 //404- NEEDS TO BE AT THE BOTTOM
 app.use((req,res)=>{

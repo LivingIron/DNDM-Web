@@ -1,10 +1,12 @@
 <html>
+    
     <%- include('./partials/head.ejs')%> 
         
     <body>
         
         <%- include('./partials/nav.ejs')%>
         <div class="mainForm">
+
           <form id="emailForm" action="/equipment/form" method="POST">
             <label for="emailArea">Email:</label>
             <input type="text" id="emailArea" name="email">
@@ -14,6 +16,7 @@
             <textarea id="messageArea" name="message"></textarea>
             <input type="submit" id="submitButton" value="Send" >
           </form> 
+          
         </div>
         <%- include('./partials/footer.ejs')%>
         

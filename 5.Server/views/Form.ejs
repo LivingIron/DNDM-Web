@@ -7,10 +7,13 @@
         <div class="mainForm">
           <form>
            
-            <% if(blogs.length > 0 ) { %>
-                <% blogs.forEach(blog => { %>
-                    <h3 class='title-blog'><%= blog.title %></h3>
-                    <p class='snippet-blog'><%= blog.snippet %></p>
+            <% if(emails.length > 0 ) { %>
+                <% emails.forEach(email => { %>
+                    <a class="single" href="/form/<%=email._id%>">
+                        <h3 class='title-blog'><%= email.email %></h3>
+                        <h3 class='title-blog'><%= email.subject %></h3>
+                        <p class='snippet-blog'><%= email.message %></p>
+                    </a>
                 <% }); %>
             <% }else { %>    
                 <p>THere are no blogs to display</p>
