@@ -632,6 +632,21 @@ footer img{
   margin: 20px 20px;
 }
 
+
+#detail-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 95vh;
+}
+
+#detail-container a{
+  color: red;
+}
+
+#detail-container a:hover{
+  cursor: pointer;
+}
 /*--------------------------------Animations---------------------------------*/
 
 a:hover{

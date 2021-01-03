@@ -137,6 +137,7 @@ app.get('/form/create',(req,res)=>{
 app.get('/form/:id',(req,res)=>{
     const id=req.params.id;
     console.log(id);
+
     Email.findById(id)
     .then((result)=>{
         res.render('Details',{email:result,title:'Email Details'});
@@ -159,7 +160,19 @@ app.post('/form',(req,res)=>{
     })
 });
 
+app.delete('/form/:id',(req,res)=>{
+    const id=req.params.id;
+    console.log(id);
 
+    Email.findByIdAndDelete(id)
+    .then(result =>{
+        res.json({redirect:'/form'});
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+
+ } );
 
 
 

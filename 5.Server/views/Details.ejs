@@ -13,6 +13,24 @@
             </div>           
         </div>
         <%- include('./partials/footer.ejs')%>
+        <script>
+            const trashcan=document.querySelector('a.delete');
+            trashcan.addEventListener('click',async (event)=>{
+                
+                const endpoint=`/form/${trashcan.dataset.doc}`;
+               
+                let response = await fetch(endpoint,{
+                    method:'DELETE'
+                });
+
+                let data=await response.json();
+                window.location.href=data.redirect;
+                
+
+            });
+        </script>
+
+
     </body>
 
 </html>
