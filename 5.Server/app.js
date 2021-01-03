@@ -7,8 +7,8 @@ const morgan=require('morgan');
 const mongoose=require('mongoose');
 require('dotenv').config();
 const Blog=require('./models/blog');
-const Email=require('./models/email');
 const { render } = require('ejs');
+const formRoutes=require('./routes/formRoutes.js');
 
 //CONNECT TO MONGODB
 const dbURI="mongodb+srv://LivingIron:veganton123@cluster0.re0gw.mongodb.net/DNDM?retryWrites=true&w=majority";
@@ -86,6 +86,9 @@ app.use(morgan('dev'));
     });
     */
 
+
+app.use('/form',formRoutes);
+
 //=========================basic routes======================
 app.get('/',(req,res)=>{
     //res.send('<p>hello</p>');
@@ -105,74 +108,6 @@ app.get('/monsters',(req,res)=>{
 app.get('/equipment',(req,res)=>{
     res.render('Equipment',{title:'Equipment'});
 });
-
-
-//==============Form routes=====================
-
-
-app.get('/form',(req,res)=>{
-
-    Email.find()
-    .then((result)=>{
-        res.render('Form',{title:'Forms',emails:result});
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-
-    
-});
-
-app.get('/form/create',(req,res)=>{
-    //const blogs=[
-    //    {title:'Yoshi finds eggs',snippet:'Lorem ipsum'},
-    //    {title:'Mario finds the stars',snippet:'Lorem dicksum'},
-    //    {title:'How to defeat your mom',snippet:'Kappa'}
-    //];
-
-
-    res.render('FormCreate',{title:'Send Form'});
-});
-
-app.get('/form/:id',(req,res)=>{
-    const id=req.params.id;
-    console.log(id);
-
-    Email.findById(id)
-    .then((result)=>{
-        res.render('Details',{email:result,title:'Email Details'});
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-});
-
-app.post('/form',(req,res)=>{
-    console.log(req.body);
-    const newEmail= new Email(req.body);
-
-    newEmail.save()
-    .then((result)=>{
-        res.redirect('/form');
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-});
-
-app.delete('/form/:id',(req,res)=>{
-    const id=req.params.id;
-    console.log(id);
-
-    Email.findByIdAndDelete(id)
-    .then(result =>{
-        res.json({redirect:'/form'});
-    })
-    .catch(err=>{
-        console.log(err);
-    });
-
- } );
 
 
 
