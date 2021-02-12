@@ -1,5 +1,8 @@
 const express = require('express');
 
+//Using nodemailer to send the email
+
+
 
 //express app
 const app = express();
@@ -11,9 +14,9 @@ const { render } = require('ejs');
 const formRoutes=require('./routes/formRoutes.js');
 
 //CONNECT TO MONGODB
-const dbURI="mongodb+srv://LivingIron:veganton123@cluster0.re0gw.mongodb.net/DNDM?retryWrites=true&w=majority";
 
-mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true})
+
+mongoose.connect(process.env.dbURI,{useNewUrlParser:true,useUnifiedTopology:true})
 .then((result)=>{app.listen(3000);})
 .catch((err)=>console.log(err));
 

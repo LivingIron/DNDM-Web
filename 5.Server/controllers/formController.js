@@ -1,6 +1,18 @@
 const Blog=require('../models/blog');
 const Email=require('../models/email');
 
+
+const nodemailer= require('nodemailer');
+
+let transporter=nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user:process.env.EMAIL,
+        pass:process.env.PASSWORD
+    }
+});
+
+
 const form_index = (req,res) => {
     Email.find()
     .then((result)=>{
@@ -37,9 +49,25 @@ const form_create_get=(req,res)=>{
 }
 
 const form_create_post=(req,res)=>{
+
     console.log(req.body);
     const newEmail= new Email(req.body);
 
+    let mailOptions={
+        from:req.body.email,
+        to:'irolifesolutions@gmail.com',
+        subject:`${req.body.email} : ${req.body.subject}`,
+        text:req.body.message
+    }
+
+    transporter.sendMail(mailOptions,(err,data)=>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log('Email sent');
+        }
+    });
+    
     newEmail.save()
     .then((result)=>{
         res.redirect('/form');
