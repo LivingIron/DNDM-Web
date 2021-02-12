@@ -1,16 +1,6 @@
 const Blog=require('../models/blog');
 const Email=require('../models/email');
-
-
 const nodemailer= require('nodemailer');
-
-let transporter=nodemailer.createTransport({
-    service:'gmail',
-    auth:{
-        user:process.env.EMAIL,
-        pass:process.env.PASSWORD
-    }
-});
 
 
 const form_index = (req,res) => {
@@ -52,6 +42,15 @@ const form_create_post=(req,res)=>{
 
     console.log(req.body);
     const newEmail= new Email(req.body);
+
+
+    let transporter=nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            user:process.env.EMAIL,
+            pass:process.env.PASSWORD
+        }
+    });
 
     let mailOptions={
         from:req.body.email,
