@@ -1,9 +1,5 @@
 const express = require('express');
 
-//Using nodemailer to send the email
-
-
-
 //express app
 const app = express();
 const morgan=require('morgan');
@@ -15,28 +11,26 @@ const formRoutes=require('./routes/formRoutes.js');
 
 //CONNECT TO MONGODB
 
-
 mongoose.connect(process.env.dbURI,{useNewUrlParser:true,useUnifiedTopology:true})
 .then((result)=>{app.listen(3000);})
 .catch((err)=>console.log(err));
 
 
-
 //register view engine
-//app.set('views','./myviews');
+    //app.set('views','./myviews');
 app.set('view engine','ejs');
 
 
 //listen for requests
-
     //app.listen(3000);
 
 
 // middleware and static files
-app.use(express.static('./public'));
-app.use(express.urlencoded({extended:true}));
-    //3rd party middlware
-app.use(morgan('dev'));
+    app.use(express.static('./public'));
+//Data parsing configuration
+    app.use(express.urlencoded({extended:true}));
+//3rd party middlware
+    app.use(morgan('dev'));
 
 //mongoose and mongo sandbox routes
     /*
